@@ -25,14 +25,15 @@ body{
 
 /* Header */
 .head{
-    
     background-color: var(--white);    
     box-shadow: var(--shadow);
     position: sticky;
+    top: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    padding: 20px;
+    justify-content: space-between;
+    padding: 20px 1.5rem;
+    transition: all 0.1s ease-in-out;
 }
 
 .title{
@@ -94,20 +95,22 @@ body{
     height: 30px;
 }
 
+@media(min-width: 1000px){
+    .head{
+        justify-content: space-around;
+        padding: 24px 6rem;
+    }
+}
+
 @media (max-width: 400px){
     .head{
         flex-direction: column;
         align-items: center;
-        gap: 10px;
-        text-align: center;
+        gap: 15px;
+        padding-top: 10px;
     }
 
-    .title{
-        font-size: 32px;
-    }
-
-    .login{
-        font-size: 16px;
-        padding: 8px 14px;
+    .main-content{
+        margin-top: 0;
     }
 }
