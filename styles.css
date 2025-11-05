@@ -1,3 +1,10 @@
+:root{
+    --white: #fffbfb;
+    --grey: #f0eef1;
+    --shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+}
+
+/* CSS RESET */
 *{
     margin: 0;
     padding: 0;
@@ -17,23 +24,32 @@ body{
 
 /* Header */
 .head{
-    display: flex;
-    background-color: #fffbfb;
-    justify-content: space-between;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
-    padding: 20px;
+    
+    background-color: var(--white);    
+    box-shadow: var(--shadow);
     position: sticky;
     width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    
 }
 
 .title{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: bolder;
+}
+
+.login{
+    border: none;
+    border-radius: 5px;
+    padding: 0 20px;
+    font-size: 18px;
 }
 
 /* Main Content */
 .main-content{
-    background-color: #f0eef1;
+    background-color: var(--grey);
     flex: 1 0 auto;
 }
 
@@ -42,7 +58,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0eef1;
+    background-color: var(--grey);
 }
 
 .footer p{
@@ -53,4 +69,22 @@ body{
 .github-logo{
     width: 30px;
     height: 30px;
+}
+
+@media (max-width: 400px){
+    .head{
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .title{
+        font-size: 32px;
+    }
+
+    .login{
+        font-size: 16px;
+        padding: 8px 14px;
+    }
 }
