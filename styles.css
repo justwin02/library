@@ -33,7 +33,6 @@ body{
     display: flex;
     justify-content: space-around;
     padding: 20px;
-    
 }
 
 .title{
@@ -57,6 +56,24 @@ body{
 .main-content{
     background-color: var(--grey);
     flex: 1 0 auto;
+    display:flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 4rem;
+}
+
+.add{
+    background-color: var(--grey);
+    border: none;
+    border-radius: 5px;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 10px 20px;
+}
+
+.add:hover{
+    cursor: pointer;
+    filter: brightness(90%);
 }
 
 /* Footer */
