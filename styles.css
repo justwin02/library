@@ -116,12 +116,21 @@ body{
 }
 
 #book-dialog{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: calc(100% - 48px);
+    max-width: 300px;
+    box-sizing: border-box;
     border: none;
     border-radius: 10px;
     padding: 20px;
-    box-shadow: var(--shadow);
-    justify-content: center;
 }
+
+#book-dialog::backdrop{
+    background-color: rgba(0, 0, 0, 0.5);
+}   
 
 #book-form{
     display: flex;
