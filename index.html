@@ -14,7 +14,31 @@
         <button class="login">Log in</button>
     </header>
     <main class="main-content">
-        <button class="add">+ Add book</button>
+        <button id="add-book" class="add">+ Add book</button>
+        <dialog id="book-dialog">
+            <form id="book-form" method="dialog">
+                <h2>Add a New Book</h2>
+                
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="author">Author</label>
+                <input type="text" id="author" name="author" required>
+
+                <label for="pages">Number of Pages</label>
+                <input type="number" id="pages" name="pages" required>
+
+                <label for="read-status">Read Status</label>
+                <select id="read-status" name="read-status" required>
+                    <option value="read">Read</option>
+                    <option value="not-read">Not Read</option>
+                </select>
+
+                <div class="form-buttons">
+                    <button type="submit">Add Book</button>
+                </div>
+            </form>
+        </dialog>
         <div id="library" class="library">
             <div class="book-grid"></div>
         </div>

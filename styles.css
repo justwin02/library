@@ -111,6 +111,24 @@ body{
     padding: 15px;
 }
 
+.content p{
+    font-weight: bold;
+}
+
+#book-dialog{
+    border: none;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    justify-content: center;
+}
+
+#book-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 /* Footer */
 .footer{
     display: flex;
