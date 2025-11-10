@@ -17,9 +17,9 @@ function addBookToLibrary(title, author, pages, read) {
 }
 
 // Example books
-addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
-addBookToLibrary("1984", "George Orwell", 328, false);
-addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
+// addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
+// addBookToLibrary("1984", "George Orwell", 328, false);
+// addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
 
 // DOM elements
 const libraryDiv = document.getElementById('library');
@@ -67,4 +67,20 @@ if (bookDialog) {
     });
 }
 
-displayLibrary();
+// Handle form submission
+bookForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    // Get inputs
+    const title = document.getElementById('title').value.trim();
+    const author = document.getElementById('author').value.trim();
+    const pages = document.getElementById('pages').value;
+    const read = document.getElementById('read').checked;
+
+    addBookToLibrary(title, author, pages, read);
+
+    displayLibrary();
+
+    bookDialog.close();
+    bookForm.reset();
+});
