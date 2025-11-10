@@ -3,29 +3,28 @@
     --grey: #f0eef1;
     --black: #050505;
     --shadow: rgba(0, 0, 0, 0.16) 0 1px 4px;
+    --gap: 20px;
+    --dialog-max: 300px;
 }
 
-/* CSS RESET */
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-
-html, body{
-    height: 100%;
-}
+html, body{ height: 100%; }
 
 body{
     font-family: 'Roboto', sans-serif;
     display: flex;
     flex-direction: column;
+    color: var(--black);
 }
 
 /* Header */
 .head{
-    background-color: var(--white);    
+    background-color: var(--white);
     box-shadow: var(--shadow);
     position: sticky;
     top: 0;
@@ -38,7 +37,7 @@ body{
 
 .title{
     font-size: 40px;
-    font-weight: bolder;
+    font-weight: 800;
 }
 
 .login{
@@ -46,18 +45,15 @@ body{
     border-radius: 5px;
     padding: 0 20px;
     font-size: 18px;
-}
-
-.login:hover{
     cursor: pointer;
-    filter: brightness(90%);
 }
+.login:hover{ filter: brightness(90%); }
 
 /* Main Content */
 .main-content{
     background-color: var(--grey);
     flex: 1 0 auto;
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
@@ -70,35 +66,33 @@ body{
     border: none;
     border-radius: 5px;
     font-size: 25px;
-    font-weight: bold;
+    font-weight: 700;
     padding: 10px 20px;
-}
-
-.add:hover{
     cursor: pointer;
-    filter: brightness(90%);
 }
+.add:hover{ filter: brightness(90%); }
 
+/* Library grid */
 .library{
     width: 95%;
     max-width: 1100px;
     margin: 20px auto 0;
-    box-sizing: border-box;
     padding: 20px;
+    box-sizing: border-box;
 
     display: grid;
     grid-template-columns: 1fr;
-    gap: 20px;
-    justify-content: stretch;
+    gap: var(--gap);
+    justify-items: stretch;
     align-items: start;
 }
 
+/* Cards */
 .book{
     background-color: var(--white);
     padding: 15px;
     border-radius: 5px;
     box-shadow: var(--shadow);
-    margin-bottom: 15px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -110,11 +104,9 @@ body{
     align-items: center;
     padding: 15px;
 }
+.content p{ font-weight: 700; }
 
-.content p{
-    font-weight: bold;
-}
-
+/* Dialog */
 #book-dialog{
     background-color: var(--grey);
     position: fixed;
@@ -122,71 +114,87 @@ body{
     left: 50%;
     transform: translate(-50%, -50%);
     width: calc(100% - 48px);
-    max-width: 300px;
+    max-width: var(--dialog-max);
     box-sizing: border-box;
     border: none;
     border-radius: 10px;
     padding: 20px;
 }
+#book-dialog::backdrop{ background-color: rgba(0,0,0,0.5); }
 
-#book-dialog::backdrop{
-    background-color: rgba(0, 0, 0, 0.5);
-}   
-
+/* Form */
 #book-form{
     display: flex;
     flex-direction: column;
     gap: 24px;
     align-items: stretch;
 }
-
-#book-form h2{
-    text-align: center;
-}
+#book-form h2{ text-align: center; }
 
 #book-form button[type="submit"]{
     width: 100%;
     padding: 14px 12px;
     background: #28a745;
+    color: #000;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: none;
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
 }
+#book-form button[type="submit"]:hover{ filter: brightness(0.95); }
 
-#book-form button[type="submit"]:hover{
-    filter: brightness(0.95);
-}
-
+/* Inputs & fields */
 .input{
     background-color: var(--white);
-    border: none;
     border-radius: 5px;
     padding: 14px 12px;
-    font: 1rem 'Roboto', sans-serif;
-    font-weight: bold;
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
     width: 100%;
-    border: none;
+    border: 1px solid transparent;
+    box-sizing: border-box;
 }
 
 .field{
     display: flex;
     justify-content: center;
     gap: 10px;
+    align-items: center;
 }
-
 .field label{
-    font-weight: bold;
+    font-weight: 700;
     min-width: 70px;
 }
 
-.field input[type="checkbox"]{width: 20px; height: 20px;}
-
-.field input[type="checkbox"]:checked{background-color: white;}
-
-
+/* checkbox */
+.field input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid rgba(0,0,0,0.12);
+    border-radius: 4px;
+    background: #fff;
+    position: relative;
+    cursor: pointer;
+}
+.field input[type="checkbox"]:checked{
+    background: #fff;
+    border-color: rgba(0,0,0,0.6);
+}
+.field input[type="checkbox"]:checked::after{
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid rgba(0,0,0,0.9);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
 
 /* Footer */
 .footer{
@@ -195,39 +203,17 @@ body{
     align-items: center;
     background-color: var(--grey);
 }
+.footer p{ font-weight: 700; margin-right: 10px; }
+.github-logo{ width: 30px; height: 30px; }
 
-.footer p{
-    font-weight: bold;
-    margin-right: 10px;
-}
-
-.github-logo{
-    width: 30px;
-    height: 30px;
-}
-
+/* Responsive */
 @media (max-width: 400px){
-    .head{
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        padding-top: 10px;
-    }
-
-    .main-content{
-        margin-top: 0;
-    }
-    .library{
-        grid-template-columns: repeat(2, minmax(220px, 1fr));
-    }
+    .head{ flex-direction: column; align-items: center; gap: 15px; padding-top: 10px; }
+    .main-content{ margin-top: 0; }
+    .library{ grid-template-columns: repeat(2, minmax(220px, 1fr)); }
 }
 
-@media(min-width: 1000px){
-    .head{
-        justify-content: space-around;
-        padding: 24px 6rem;
-    }
-    .library{
-        grid-template-columns: repeat(3, minmax(240px, 1fr));
-    }
+@media (min-width: 1000px){
+    .head{ justify-content: space-around; padding: 24px 6rem; }
+    .library{ grid-template-columns: repeat(3, minmax(240px, 1fr)); }
 }
