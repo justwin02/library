@@ -137,7 +137,27 @@ body{
     display: flex;
     flex-direction: column;
     gap: 24px;
-    align-items: center;
+    align-items: stretch;
+}
+
+#book-form h2{
+    text-align: center;
+}
+
+#book-form button[type="submit"]{
+    width: 100%;
+    padding: 14px 12px;
+    background: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: none;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+#book-form button[type="submit"]:hover{
+    filter: brightness(0.95);
 }
 
 .input{
@@ -153,7 +173,7 @@ body{
 
 .field{
     display: flex;
-    align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 
@@ -162,15 +182,11 @@ body{
     min-width: 70px;
 }
 
-.field input[type="checkbox"]{
-    width: 20px;
-    height: 20px;
-}
+.field input[type="checkbox"]{width: 20px; height: 20px;}
 
-.field input[type="checkbox"]:checked{
-    background-color: white;
-    
-}
+.field input[type="checkbox"]:checked{background-color: white;}
+
+
 
 /* Footer */
 .footer{
