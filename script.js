@@ -16,6 +16,10 @@ function addBookToLibrary(title, author, pages, read) {
     myLibrary.push(book);
 }
 
+Book.prototype.toggleRead = function() {
+    this.read = !this.read;
+};
+
 // Example books
 // addBookToLibrary("The Hobbit", "J.R.R. Tolkien", 310, true);
 // addBookToLibrary("1984", "George Orwell", 328, false);
@@ -45,7 +49,9 @@ function displayLibrary() {
                 <h3>"${book.title}"</h3>
                 <p>${book.author}</p>
                 <p>${book.pages}</p>
-                <p>Read: ${book.read ? 'Yes' : 'No'}</p>
+                <button class="toggle-read">
+                    ${book.read ? 'Read' : 'Not Read'}
+                </button>
             </div>
         `;
 
@@ -57,9 +63,22 @@ function displayLibrary() {
             removeBook(book.id);
         });
 
-        bookDiv.appendChild(removeBtn);
+        // Toggle read status
+        const toggleRead = bookDiv.querySelector('.toggle-read');
 
-        // Add card to main library
+        if(book.read){
+            toggleRead.classList.add('read');
+        }else{
+            toggleRead.classList.add('not-read');
+        }
+
+        toggleRead.addEventListener('click', () => {
+            book.toggleRead();
+            displayLibrary();
+        });
+
+        bookDiv.appendChild(toggleRead);
+        bookDiv.appendChild(removeBtn);
         libraryDiv.appendChild(bookDiv);
     });
 }

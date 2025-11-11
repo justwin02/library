@@ -134,7 +134,7 @@ body{
 #book-form button[type="submit"]{
     width: 100%;
     padding: 14px 12px;
-    background: #28a745;
+    background: #66bb6a;
     color: #000;
     border: none;
     border-radius: 5px;
@@ -196,17 +196,21 @@ body{
     transform: rotate(45deg);
 }
 
-/* Remove button */
-.remove-btn{
+/* Toggle Read & Remove button */
+.toggle-read, .remove-btn{
     width: 100%;
     padding: 14px 14px;
     border: none;
     font-weight: bold;
     font-size: 1rem;
     border-radius: 8px;
+    margin: 10px 0;
+    cursor: pointer;
 }
 
-.remove-btn:hover{ filter: brightness(90%); }
+.toggle-read.read{background-color: #66bb6a;}
+.toggle-read.not-read{background-color: #ef5350;}
+.toggle-read:hover, .remove-btn:hover{ filter: brightness(0.92);}
 
 /* Footer */
 .footer{
