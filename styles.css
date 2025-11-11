@@ -223,9 +223,8 @@ body{
 .github-logo{ width: 30px; height: 30px; }
 
 /* Responsive */
-@media (max-width: 400px){
-    .head{ flex-direction: column; align-items: center; gap: 15px; padding-top: 10px; }
-    .main-content{ margin-top: 0; }
+@media (min-width: 401px) and (max-width: 999px){
+    .head{ justify-content: space-between; padding: 20px 1.5rem; }
     .library{ grid-template-columns: repeat(2, minmax(220px, 1fr)); }
 }
 
