@@ -37,6 +37,7 @@ function displayLibrary() {
         // Creates a card for each book
         const bookDiv = document.createElement('div');
         bookDiv.classList.add('book');
+        bookDiv.setAttribute('data-id', book.id);
 
         // Fill card info
         bookDiv.innerHTML = `
@@ -47,6 +48,16 @@ function displayLibrary() {
                 <p>Read: ${book.read ? 'Yes' : 'No'}</p>
             </div>
         `;
+
+        // Add Remove button
+        const removeBtn = document.createElement('button');
+        removeBtn.textContent = 'Remove';
+        removeBtn.classList.add('remove-btn');
+        removeBtn.addEventListener('click', () => {
+            removeBook(book.id);
+        });
+
+        bookDiv.appendChild(removeBtn);
 
         // Add card to main library
         libraryDiv.appendChild(bookDiv);
@@ -67,7 +78,7 @@ if (bookDialog) {
     });
 }
 
-// Handle form submission
+// Handle form submission and adds book to library
 bookForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -84,3 +95,11 @@ bookForm.addEventListener('submit', (e) => {
     bookDialog.close();
     bookForm.reset();
 });
+
+function removeBook(id) {
+    const index = myLibrary.findIndex(book => book.id === id);
+    if (index !== -1) {
+        myLibrary.splice(index, 1);
+        displayLibrary();
+    }
+}

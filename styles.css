@@ -196,6 +196,18 @@ body{
     transform: rotate(45deg);
 }
 
+/* Remove button */
+.remove-btn{
+    width: 100%;
+    padding: 14px 14px;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 8px;
+}
+
+.remove-btn:hover{ filter: brightness(90%); }
+
 /* Footer */
 .footer{
     display: flex;
